@@ -8,9 +8,28 @@
   --primary-dark: #115e59;
   --accent: #d97706;
   --line: #ded6c8;
+  --header-bg: rgba(247, 244, 239, 0.92);
+  --input-bg: #ffffff;
   --shadow: 0 22px 55px rgba(28, 36, 48, 0.12);
   --radius: 8px;
   --max-width: 1120px;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #101418;
+  --surface: #171d23;
+  --surface-muted: #222a31;
+  --text: #f3f4f0;
+  --muted: #a8b1bd;
+  --primary: #2dd4bf;
+  --primary-dark: #5eead4;
+  --accent: #f59e0b;
+  --line: #303944;
+  --header-bg: rgba(16, 20, 24, 0.92);
+  --input-bg: #11171c;
+  --shadow: 0 22px 55px rgba(0, 0, 0, 0.32);
+  color-scheme: dark;
 }
 
 * {
@@ -27,6 +46,7 @@ body {
   color: var(--text);
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
+  transition: background 180ms ease, color 180ms ease;
 }
 
 a {
@@ -43,8 +63,8 @@ img {
   position: sticky;
   top: 0;
   z-index: 20;
-  border-bottom: 1px solid rgba(222, 214, 200, 0.8);
-  background: rgba(247, 244, 239, 0.92);
+  border-bottom: 1px solid var(--line);
+  background: var(--header-bg);
   backdrop-filter: blur(14px);
 }
 
@@ -88,6 +108,36 @@ img {
 .nav-links a:hover,
 .nav-links a:focus-visible {
   color: var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.theme-toggle {
+  display: inline-grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.theme-toggle-icon {
+  font-size: 1.2rem;
+  line-height: 1;
 }
 
 .menu-toggle {
@@ -400,7 +450,7 @@ textarea {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #fff;
+  background: var(--input-bg);
   color: var(--text);
   font: inherit;
 }
