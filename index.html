@@ -151,58 +151,9 @@
             <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--accent)]">Projects</p>
             <h2 class="text-4xl font-black leading-tight sm:text-5xl">Selected work</h2>
           </div>
-          <p class="max-w-md text-[var(--muted)]">Project cards are ready for your real Roblox systems, screenshots, GitHub links, and live demos.</p>
         </div>
 
-        <div class="grid gap-6 lg:grid-cols-3">
-          <article class="project-card">
-            <img class="h-48 w-full object-cover" src="./assets/project-placeholder-1.svg" alt="Project One screenshot placeholder" />
-            <div class="p-6">
-              <h3 class="text-xl font-black">Project One</h3>
-              <p class="mt-3 text-[var(--muted)]">A short description of the Roblox system, feature, or experience you built.</p>
-              <div class="mt-4 flex flex-wrap gap-2">
-                <span class="tag">Lua</span>
-                <span class="tag">Roblox Studio</span>
-              </div>
-              <div class="mt-6 flex gap-4">
-                <a class="text-sm font-black text-[var(--accent)] hover:underline" href="#">GitHub</a>
-                <a class="text-sm font-black text-[var(--accent)] hover:underline" href="#">Live Demo</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img class="h-48 w-full object-cover" src="./assets/project-placeholder-2.svg" alt="Project Two screenshot placeholder" />
-            <div class="p-6">
-              <h3 class="text-xl font-black">Project Two</h3>
-              <p class="mt-3 text-[var(--muted)]">Explain the gameplay loop, data system, UI, or optimization challenge here.</p>
-              <div class="mt-4 flex flex-wrap gap-2">
-                <span class="tag">Datastore</span>
-                <span class="tag">Systems</span>
-              </div>
-              <div class="mt-6 flex gap-4">
-                <a class="text-sm font-black text-[var(--accent)] hover:underline" href="#">GitHub</a>
-                <a class="text-sm font-black text-[var(--accent)] hover:underline" href="#">Live Demo</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img class="h-48 w-full object-cover" src="./assets/project-placeholder-3.svg" alt="Project Three screenshot placeholder" />
-            <div class="p-6">
-              <h3 class="text-xl font-black">Project Three</h3>
-              <p class="mt-3 text-[var(--muted)]">Use this for a polished feature, commissioned system, or technical showcase.</p>
-              <div class="mt-4 flex flex-wrap gap-2">
-                <span class="tag">OOP</span>
-                <span class="tag">Optimization</span>
-              </div>
-              <div class="mt-6 flex gap-4">
-                <a class="text-sm font-black text-[var(--accent)] hover:underline" href="#">GitHub</a>
-                <a class="text-sm font-black text-[var(--accent)] hover:underline" href="#">Live Demo</a>
-              </div>
-            </div>
-          </article>
-        </div>
+        <div id="project-grid" class="grid gap-6 lg:grid-cols-3"></div>
       </section>
 
       <section id="services-offered" class="mx-auto w-[min(100%-1.5rem,72rem)] scroll-mt-24 py-20">
@@ -229,76 +180,11 @@
       <section id="services" class="mx-auto w-[min(100%-1.5rem,72rem)] scroll-mt-24 py-20">
         <div class="mb-10">
           <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--accent)]">Past Client</p>
-          <h2 class="text-4xl font-black leading-tight sm:text-5xl">Games and clients</h2>
+          <h2 class="text-4xl font-black leading-tight sm:text-5xl">Proof & Description</h2>
         </div>
 
         <div class="client-marquee" aria-label="Past client showcase">
-          <div class="client-marquee-track">
-            <!-- To customize: change each img src, title, and description. Duplicate cards keep the loop seamless. -->
-            <article class="client-card">
-              <img src="./assets/project-placeholder-1.svg" alt="Past client project screenshot" />
-              <div class="client-card-content">
-                <h3>Health Per Click</h3>
-                <p>Growth system scripting and gameplay balancing.</p>
-              </div>
-            </article>
-
-            <article class="client-card">
-              <img src="./assets/project-placeholder-2.svg" alt="Past client project screenshot" />
-              <div class="client-card-content">
-                <h3>Guess My Brainrot</h3>
-                <p>Round logic, datastore support, and UI scripting.</p>
-              </div>
-            </article>
-
-            <article class="client-card">
-              <img src="./assets/project-placeholder-3.svg" alt="Past client project screenshot" />
-              <div class="client-card-content">
-                <h3>Speed Broom Escape</h3>
-                <p>Feature cleanup, bug fixing, and performance support.</p>
-              </div>
-            </article>
-
-            <article class="client-card">
-              <img src="./assets/profile-placeholder.png" alt="Past client project screenshot" />
-              <div class="client-card-content">
-                <h3>Survive Mineshaft</h3>
-                <p>Gameplay systems and server-side scripting.</p>
-              </div>
-            </article>
-
-            <article class="client-card" aria-hidden="true">
-              <img src="./assets/project-placeholder-1.svg" alt="" />
-              <div class="client-card-content">
-                <h3>Health Per Click</h3>
-                <p>Growth system scripting and gameplay balancing.</p>
-              </div>
-            </article>
-
-            <article class="client-card" aria-hidden="true">
-              <img src="./assets/project-placeholder-2.svg" alt="" />
-              <div class="client-card-content">
-                <h3>Guess My Brainrot</h3>
-                <p>Round logic, datastore support, and UI scripting.</p>
-              </div>
-            </article>
-
-            <article class="client-card" aria-hidden="true">
-              <img src="./assets/project-placeholder-3.svg" alt="" />
-              <div class="client-card-content">
-                <h3>Speed Broom Escape</h3>
-                <p>Feature cleanup, bug fixing, and performance support.</p>
-              </div>
-            </article>
-
-            <article class="client-card" aria-hidden="true">
-              <img src="./assets/profile-placeholder.png" alt="" />
-              <div class="client-card-content">
-                <h3>Survive Mineshaft</h3>
-                <p>Gameplay systems and server-side scripting.</p>
-              </div>
-            </article>
-          </div>
+          <div id="client-marquee-track" class="client-marquee-track"></div>
         </div>
       </section>
     </main>
