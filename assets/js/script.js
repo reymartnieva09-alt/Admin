@@ -1,7 +1,7 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 const themeToggle = document.querySelector(".theme-toggle");
-const themeToggleText = document.querySelector(".theme-toggle-text");
+const themeToggleIcon = document.querySelector(".theme-toggle-icon");
 const year = document.querySelector("#year");
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -13,10 +13,10 @@ const setTheme = (theme) => {
 
   document.documentElement.dataset.theme = theme;
 
-  if (themeToggle && themeToggleText) {
+  if (themeToggle && themeToggleIcon) {
     themeToggle.setAttribute("aria-label", `Switch to ${isDark ? "light" : "dark"} mode`);
     themeToggle.setAttribute("aria-pressed", String(isDark));
-    themeToggleText.textContent = isDark ? "Light" : "Dark";
+    themeToggleIcon.textContent = isDark ? "☾" : "☀";
   }
 };
 
