@@ -5,29 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="A modern personal portfolio showcasing projects, skills, and contact information."
+      content="Mackenzie's Roblox game development portfolio, featuring scripting, systems, and selected projects."
     />
-    <title>Mackenzie | Portfolio</title>
+    <title>Mackenzie | Roblox Game Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/css/output.css" />
   </head>
-  <body>
+  <body class="bg-[var(--bg)] font-sans text-[var(--text)] antialiased">
     <header class="site-header">
-      <nav class="navbar" aria-label="Primary navigation">
-        <a class="logo" href="#home" aria-label="Go to home">YN</a>
+      <nav class="header-nav" aria-label="Primary navigation">
+        <a
+          class="brand-logo"
+          href="#home"
+          aria-label="Go to home"
+        >
+          MK
+        </a>
 
-        <div class="nav-actions">
-          <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <div class="header-actions">
+          <ul
+            class="nav-links nav-list"
+          >
+            <li><a class="nav-link" href="#home">Home</a></li>
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#skills">Skills</a></li>
+            <li><a class="nav-link" href="#projects">Projects</a></li>
+            <li><a class="nav-link" href="#services">Services</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
           </ul>
 
           <button
@@ -36,7 +45,7 @@
             aria-label="Switch to dark mode"
             aria-pressed="false"
           >
-            <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+            <span class="theme-toggle-text">Dark</span>
           </button>
 
           <button
@@ -45,167 +54,239 @@
             aria-label="Toggle navigation menu"
             aria-expanded="false"
           >
-            <span></span>
-            <span></span>
-            <span></span>
+            <span class="sr-only">Open menu</span>
+            <span class="menu-icon relative block h-4 w-5" aria-hidden="true"></span>
           </button>
         </div>
       </nav>
     </header>
 
     <main>
-      <section id="home" class="hero section">
-        <div class="hero-content">
-          <p class="eyebrow">Hello, I'm</p>
-          <h1>Mackenzie</h1>
-          <p class="tagline">
-            Hello, I’m Mackenzi. I'm 19 yrs old, a Experienced Full-Stack Scripter with 2 years of experience in Roblox Studio.
+      <section id="home" class="mx-auto grid min-h-[calc(100vh-5rem)] w-[min(100%-1.5rem,72rem)] items-center gap-12 py-20 lg:grid-cols-[1.04fr_0.96fr] lg:py-24">
+        <div>
+          <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--accent)] sm:text-base">Hello, I'm</p>
+          <h1 class="max-w-3xl text-6xl font-black leading-none tracking-normal sm:text-7xl lg:text-8xl">
+            Mackenzie
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)] sm:text-xl lg:text-2xl lg:leading-10">
+            I'm a 19-year-old experienced full-stack scripter with 2 years of experience building systems in Roblox Studio.
           </p>
-          <a class="btn primary-btn" href="#projects">View My Work</a>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a class="inline-flex min-h-12 items-center justify-center rounded-lg bg-[var(--accent)] px-6 font-extrabold text-[#07110f] shadow-lg shadow-[var(--accent-shadow)] transition hover:-translate-y-0.5 hover:bg-[var(--accent-strong)] focus:outline-none focus:ring-4 focus:ring-[var(--ring)]" href="#projects">
+              View Projects
+            </a>
+            <a class="inline-flex min-h-12 items-center justify-center rounded-lg border border-[var(--line)] bg-[var(--surface)] px-6 font-extrabold text-[var(--text)] transition hover:-translate-y-0.5 hover:border-[var(--accent)] focus:outline-none focus:ring-4 focus:ring-[var(--ring)]" href="#contact">
+              Contact Me
+            </a>
+          </div>
         </div>
-        <div class="hero-visual" aria-label="Portfolio preview graphic">
-          <div class="browser-card">
-            <div class="browser-dots" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
+
+        <div class="relative">
+          <div class="absolute inset-6 rounded-[2rem] bg-[var(--accent)] opacity-10 blur-3xl"></div>
+          <div class="relative overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-6 shadow-2xl shadow-[var(--card-shadow)]">
+            <div class="mb-8 flex gap-2">
+              <span class="size-3 rounded-full bg-[#ef4444]"></span>
+              <span class="size-3 rounded-full bg-[#f59e0b]"></span>
+              <span class="size-3 rounded-full bg-[#22c55e]"></span>
             </div>
-            <div class="browser-lines">
-              <span></span>
-              <span></span>
-              <span></span>
+            <div class="grid gap-4">
+              <div class="rounded-xl bg-[var(--soft)] p-5">
+                <p class="text-sm font-bold text-[var(--muted)]">Currently focused on</p>
+                <p class="mt-2 text-2xl font-black">Roblox gameplay systems</p>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="rounded-xl border border-[var(--line)] p-5">
+                  <p class="text-3xl font-black text-[var(--accent)]">2+</p>
+                  <p class="mt-1 text-sm font-semibold text-[var(--muted)]">Years scripting</p>
+                </div>
+                <div class="rounded-xl border border-[var(--line)] p-5">
+                  <p class="text-3xl font-black text-[var(--accent)]">Full</p>
+                  <p class="mt-1 text-sm font-semibold text-[var(--muted)]">Stack systems</p>
+                </div>
+              </div>
+              <div class="h-28 rounded-xl bg-gradient-to-br from-[var(--soft)] to-transparent"></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="about" class="about section">
-        <div class="section-heading">
-          <p class="eyebrow">About</p>
-          <h2>Focused on practical, polished web experiences.</h2>
-        </div>
-
-        <div class="about-grid">
+      <section id="about" class="mx-auto w-[min(100%-1.5rem,72rem)] scroll-mt-24 py-20">
+        <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <img
-            class="photo-placeholder"
-            src="assets/profile-placeholder.svg"
+            class="aspect-square w-full max-w-sm rounded-2xl border border-[var(--line)] bg-[var(--soft)] object-cover shadow-2xl shadow-[var(--card-shadow)]"
+            src="./assets/profile-placeholder.svg"
             alt="Profile photo placeholder"
           />
-
-          <div class="about-text">
-            <p>
-              Write a short introduction about yourself here. Share what kind of
-              work you enjoy, the technologies you use, and what makes your
-              approach unique.a
-            </p>
-            <p>
-              This space can include your background, current goals, education,
-              professional experience, or the types of projects you want to
-              highlight.
-            </p>
+          <div>
+            <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--accent)]">About</p>
+            <h2 class="max-w-3xl text-4xl font-black leading-tight sm:text-5xl">
+              Practical scripting, clean systems, and reliable Roblox experiences.
+            </h2>
+            <div class="mt-6 space-y-4 text-lg leading-8 text-[var(--muted)]">
+              <p>
+                I build gameplay systems, backend logic, and maintainable scripts for Roblox experiences. I care about clean structure, performance, and making features easy to improve over time.
+              </p>
+              <p>
+                Replace this section with your real bio, recent work, favorite types of systems, and what kind of teams or clients you want to work with.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="projects" class="projects section">
-        <div class="section-heading">
-          <p class="eyebrow">Projects</p>
-          <h2>Selected work</h2>
+      <section id="skills" class="mx-auto w-[min(100%-1.5rem,72rem)] scroll-mt-24 py-20">
+        <div class="mb-10">
+          <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--accent)]">Skills</p>
+          <h2 class="text-4xl font-black leading-tight sm:text-5xl">My Core Skills</h2>
         </div>
-
-        <div class="project-grid">
-          <article class="project-card">
-            <img
-              class="screenshot-placeholder"
-              src="assets/project-placeholder-1.svg"
-              alt="Project One screenshot placeholder"
-            />
-            <div class="project-body">
-              <h3>Project One</h3>
-              <p>
-                A short description of the project, the problem it solves, and
-                the technologies used to build it.
-              </p>
-              <div class="project-links">
-                <a href="#" aria-label="Project One GitHub repository">GitHub</a>
-                <a href="#" aria-label="Project One live demo">Live Demo</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img
-              class="screenshot-placeholder"
-              src="assets/project-placeholder-2.svg"
-              alt="Project Two screenshot placeholder"
-            />
-            <div class="project-body">
-              <h3>Project Two</h3>
-              <p>
-                A clean project summary that explains the main feature, design
-                goal, or development challenge.
-              </p>
-              <div class="project-links">
-                <a href="#" aria-label="Project Two GitHub repository">GitHub</a>
-                <a href="#" aria-label="Project Two live demo">Live Demo</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img
-              class="screenshot-placeholder"
-              src="assets/project-placeholder-3.svg"
-              alt="Project Three screenshot placeholder"
-            />
-            <div class="project-body">
-              <h3>Project Three</h3>
-              <p>
-                Use this area to describe outcomes, important tools, and what
-                visitors should notice about the project.
-              </p>
-              <div class="project-links">
-                <a href="#" aria-label="Project Three GitHub repository">GitHub</a>
-                <a href="#" aria-label="Project Three live demo">Live Demo</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="skills" class="skills section">
-        <div class="section-heading">
-          <p class="eyebrow">Skills</p>
-          <h2>My Core Skills</h2>
-        </div>
-
-        <ul class="skill-list" aria-label="Skills list">
-          <li>Modular Scripts & OOP</li>
-          <li>Performance Optimization</li>
-          <li>Datastore</li>
-          <li>Clean & Maintainable code</li>
-          <li>Security</li>
-          <li>Bug Fixing</li>
+        <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-label="Skills list">
+          <li class="skill-card">Modular Scripts & OOP</li>
+          <li class="skill-card">Performance Optimization</li>
+          <li class="skill-card">Datastore</li>
+          <li class="skill-card">Clean & Maintainable Code</li>
+          <li class="skill-card">Security</li>
+          <li class="skill-card">Bug Fixing</li>
         </ul>
       </section>
 
-    <footer id="contact" class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <h2>Mackenzie</h2>
-          <p>Roblox Game Developer</p>
+      <section id="projects" class="mx-auto w-[min(100%-1.5rem,72rem)] scroll-mt-24 py-20">
+        <div class="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--accent)]">Projects</p>
+            <h2 class="text-4xl font-black leading-tight sm:text-5xl">Selected work</h2>
+          </div>
+          <p class="max-w-md text-[var(--muted)]">Project cards are ready for your real Roblox systems, screenshots, GitHub links, and live demos.</p>
         </div>
 
-        <div class="footer-socials" aria-label="Social links">
-          <a href="https://discord.com/users/mack9513" aria-label="Discord profile">D</a>
-          <a href="#" aria-label="X profile">X</a>
-          <a href="https://www.roblox.com/users/3718821959/profile" aria-label="GitHub profile">R</a>
+        <div class="grid gap-6 lg:grid-cols-3">
+          <article class="project-card">
+            <img class="h-48 w-full object-cover" src="./assets/project-placeholder-1.svg" alt="Project One screenshot placeholder" />
+            <div class="p-6">
+              <h3 class="text-xl font-black">Project One</h3>
+              <p class="mt-3 text-[var(--muted)]">A short description of the Roblox system, feature, or experience you built.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="tag">Lua</span>
+                <span class="tag">Roblox Studio</span>
+              </div>
+              <div class="mt-6 flex gap-4">
+                <a class="text-sm font-black text-[var(--accent)] hover:underline" href="#">GitHub</a>
+                <a class="text-sm font-black text-[var(--accent)] hover:underline" href="#">Live Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img class="h-48 w-full object-cover" src="./assets/project-placeholder-2.svg" alt="Project Two screenshot placeholder" />
+            <div class="p-6">
+              <h3 class="text-xl font-black">Project Two</h3>
+              <p class="mt-3 text-[var(--muted)]">Explain the gameplay loop, data system, UI, or optimization challenge here.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="tag">Datastore</span>
+                <span class="tag">Systems</span>
+              </div>
+              <div class="mt-6 flex gap-4">
+                <a class="text-sm font-black text-[var(--accent)] hover:underline" href="#">GitHub</a>
+                <a class="text-sm font-black text-[var(--accent)] hover:underline" href="#">Live Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img class="h-48 w-full object-cover" src="./assets/project-placeholder-3.svg" alt="Project Three screenshot placeholder" />
+            <div class="p-6">
+              <h3 class="text-xl font-black">Project Three</h3>
+              <p class="mt-3 text-[var(--muted)]">Use this for a polished feature, commissioned system, or technical showcase.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="tag">OOP</span>
+                <span class="tag">Optimization</span>
+              </div>
+              <div class="mt-6 flex gap-4">
+                <a class="text-sm font-black text-[var(--accent)] hover:underline" href="#">GitHub</a>
+                <a class="text-sm font-black text-[var(--accent)] hover:underline" href="#">Live Demo</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="services" class="mx-auto w-[min(100%-1.5rem,72rem)] scroll-mt-24 py-20">
+        <div class="mb-10">
+          <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--accent)]">Services</p>
+          <h2 class="text-4xl font-black leading-tight sm:text-5xl">What I can help with</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="service-card">
+            <h3 class="text-xl font-black">Gameplay Systems</h3>
+            <p class="mt-3 text-[var(--muted)]">Reusable scripts for progression, rounds, combat, inventory, and player-facing features.</p>
+          </article>
+          <article class="service-card">
+            <h3 class="text-xl font-black">Backend Logic</h3>
+            <p class="mt-3 text-[var(--muted)]">Datastore, security checks, server authority, and maintainable service-style code.</p>
+          </article>
+          <article class="service-card">
+            <h3 class="text-xl font-black">Bug Fixing</h3>
+            <p class="mt-3 text-[var(--muted)]">Debugging, performance cleanup, script organization, and stability improvements.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="mx-auto w-[min(100%-1.5rem,72rem)] scroll-mt-24 py-20">
+        <div class="rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-6 shadow-2xl shadow-[var(--card-shadow)] sm:p-8 lg:p-10">
+          <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--accent)]">Contact</p>
+              <h2 class="text-4xl font-black leading-tight sm:text-5xl">Send a message</h2>
+              <p class="mt-5 text-lg leading-8 text-[var(--muted)]">
+                This form is front-end only. Replace it later with Formspree, Netlify Forms, or another static-friendly form service.
+              </p>
+            </div>
+            <form class="grid gap-5" action="#" method="post">
+              <div>
+                <label class="mb-2 block font-extrabold" for="name">Name</label>
+                <input class="form-field" type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div>
+                <label class="mb-2 block font-extrabold" for="email">Email</label>
+                <input class="form-field" type="email" id="email" name="email" placeholder="you@example.com" required />
+              </div>
+              <div>
+                <label class="mb-2 block font-extrabold" for="message">Message</label>
+                <textarea class="form-field min-h-36 resize-y py-3" id="message" name="message" placeholder="Tell me about your project" required></textarea>
+              </div>
+              <button class="inline-flex min-h-12 items-center justify-center rounded-lg bg-[var(--accent)] px-6 font-extrabold text-[#07110f] shadow-lg shadow-[var(--accent-shadow)] transition hover:-translate-y-0.5 hover:bg-[var(--accent-strong)] focus:outline-none focus:ring-4 focus:ring-[var(--ring)]" type="submit">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-[#342923] px-4 py-14 text-white/55">
+      <div class="mx-auto grid w-[min(100%,72rem)] items-center gap-8 text-center md:grid-cols-[1fr_auto_1fr] md:text-left">
+        <div>
+          <h2 class="text-2xl font-black text-[#e9d7c6]">Mackenzie</h2>
+          <p class="mt-2 font-bold">Roblox Game Developer</p>
         </div>
 
-        <p class="footer-copy">&copy; <span id="year"></span> Mackenzie. All rights reserved.</p>
+        <div class="flex items-center justify-center gap-3" aria-label="Social links">
+          <a class="social-link" href="https://discord.com/users/mack9513" target="_blank" rel="noopener noreferrer" aria-label="Discord profile">
+            <svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.32 4.37A19.8 19.8 0 0 0 15.36 2.85a.08.08 0 0 0-.08.04c-.21.38-.45.88-.62 1.27a18.4 18.4 0 0 0-5.5 0 12.8 12.8 0 0 0-.63-1.27.08.08 0 0 0-.08-.04A19.7 19.7 0 0 0 3.5 4.37a.07.07 0 0 0-.03.03C.35 9.05-.4 13.58.02 18.06c0 .02.01.05.03.06a19.9 19.9 0 0 0 6.07 3.07.08.08 0 0 0 .09-.03c.47-.64.89-1.31 1.25-2.01a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.9-.9.08.08 0 0 1-.01-.13c.13-.1.25-.2.37-.3a.08.08 0 0 1 .08-.01c3.96 1.81 8.25 1.81 12.16 0a.08.08 0 0 1 .09.01c.12.1.24.2.37.3a.08.08 0 0 1-.01.13c-.6.35-1.23.65-1.9.9a.08.08 0 0 0-.04.11c.37.7.79 1.37 1.25 2.01a.08.08 0 0 0 .09.03A19.85 19.85 0 0 0 24 18.12a.08.08 0 0 0 .03-.06c.5-5.18-.84-9.67-3.68-13.66a.06.06 0 0 0-.03-.03ZM8.02 15.33c-1.18 0-2.16-1.08-2.16-2.41s.96-2.41 2.16-2.41c1.21 0 2.18 1.09 2.16 2.41 0 1.33-.95 2.41-2.16 2.41Zm7.97 0c-1.18 0-2.16-1.08-2.16-2.41s.96-2.41 2.16-2.41c1.21 0 2.18 1.09 2.16 2.41 0 1.33-.95 2.41-2.16 2.41Z" />
+            </svg>
+          </a>
+          <a class="social-link text-sm font-black" href="#" aria-label="X profile">X</a>
+          <a class="social-link" href="https://www.roblox.com/users/3718821959/profile" target="_blank" rel="noopener noreferrer" aria-label="Roblox profile">
+            <svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M5.16 0 24 5.16 18.84 24 0 18.84 5.16 0Zm5.34 8.7-1.8 6.6 6.6 1.8 1.8-6.6-6.6-1.8Z" />
+            </svg>
+          </a>
+        </div>
+
+        <p class="md:justify-self-end">&copy; <span id="year"></span> Mackenzie. All rights reserved.</p>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>

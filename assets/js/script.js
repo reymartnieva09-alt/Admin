@@ -1,7 +1,7 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 const themeToggle = document.querySelector(".theme-toggle");
-const themeToggleIcon = document.querySelector(".theme-toggle-icon");
+const themeToggleText = document.querySelector(".theme-toggle-text");
 const year = document.querySelector("#year");
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -9,14 +9,14 @@ const getStoredTheme = () => localStorage.getItem("portfolio-theme");
 const getPreferredTheme = () => getStoredTheme() || (prefersDark.matches ? "dark" : "light");
 
 const setTheme = (theme) => {
+  const isDark = theme === "dark";
+
   document.documentElement.dataset.theme = theme;
 
-  if (themeToggle && themeToggleIcon) {
-    const isDark = theme === "dark";
-
+  if (themeToggle && themeToggleText) {
     themeToggle.setAttribute("aria-label", `Switch to ${isDark ? "light" : "dark"} mode`);
     themeToggle.setAttribute("aria-pressed", String(isDark));
-    themeToggleIcon.textContent = isDark ? "☀" : "☾";
+    themeToggleText.textContent = isDark ? "Light" : "Dark";
   }
 };
 
@@ -28,8 +28,7 @@ if (year) {
 
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
-    const currentTheme = document.documentElement.dataset.theme;
-    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
 
     localStorage.setItem("portfolio-theme", nextTheme);
     setTheme(nextTheme);
@@ -46,14 +45,12 @@ if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", () => {
     const isOpen = navLinks.classList.toggle("is-open");
 
-    menuToggle.classList.toggle("is-open", isOpen);
     menuToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
   navLinks.addEventListener("click", (event) => {
     if (event.target instanceof HTMLAnchorElement) {
       navLinks.classList.remove("is-open");
-      menuToggle.classList.remove("is-open");
       menuToggle.setAttribute("aria-expanded", "false");
     }
   });
