@@ -4,36 +4,22 @@ const themeToggle = document.querySelector(".theme-toggle");
 const themeToggleIcon = document.querySelector(".theme-toggle-icon");
 const projectGrid = document.querySelector("#project-grid");
 const clientMarqueeTrack = document.querySelector("#client-marquee-track");
+const videoModal = document.querySelector("#video-modal");
+const videoModalTitle = document.querySelector("#video-modal-title");
+const projectDemoVideo = document.querySelector("#project-demo-video");
+const videoCloseButtons = document.querySelectorAll("[data-video-close]");
 const year = document.querySelector("#year");
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
 const projects = [
   {
-    title: "Project One",
-    description: "A short description of the Roblox system, feature, or experience you built.",
-    image: "./assets/project-placeholder-1.svg",
-    alt: "Project One screenshot placeholder",
+    title: "Driving System",
+    description: "feature: Spawner, nitro, ui, sounds, effects, and secured.",
+    image: "./assets/ProjectImages/drivingsystem.png",
+    alt: "Driving System Image",
     tags: ["Lua", "Roblox Studio"],
     githubUrl: "#",
-    demoUrl: "#",
-  },
-  {
-    title: "Project Two",
-    description: "Explain the gameplay loop, data system, UI, or optimization challenge here.",
-    image: "./assets/project-placeholder-2.svg",
-    alt: "Project Two screenshot placeholder",
-    tags: ["Datastore", "Systems"],
-    githubUrl: "#",
-    demoUrl: "#",
-  },
-  {
-    title: "Project Three",
-    description: "Use this for a polished feature, commissioned system, or technical showcase.",
-    image: "./assets/project-placeholder-3.svg",
-    alt: "Project Three screenshot placeholder",
-    tags: ["OOP", "Optimization"],
-    githubUrl: "#",
-    demoUrl: "#",
+    videoUrl: "./assets/ProjectVideos/Roblox-2026-05-08T04_17_35.731Z.mp4",
   },
 ];
 
@@ -72,6 +58,32 @@ setTheme(getPreferredTheme());
 if (year) {
   year.textContent = new Date().getFullYear();
 }
+
+const openVideoModal = (project) => {
+  if (!videoModal || !videoModalTitle || !projectDemoVideo || !project.videoUrl) {
+    return;
+  }
+
+  videoModalTitle.textContent = `${project.title} Demo`;
+  projectDemoVideo.src = project.videoUrl;
+  videoModal.classList.add("is-open");
+  videoModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  projectDemoVideo.play().catch(() => {});
+};
+
+const closeVideoModal = () => {
+  if (!videoModal || !projectDemoVideo) {
+    return;
+  }
+
+  projectDemoVideo.pause();
+  projectDemoVideo.removeAttribute("src");
+  projectDemoVideo.load();
+  videoModal.classList.remove("is-open");
+  videoModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+};
 
 const createProjectCard = (project) => {
   const card = document.createElement("article");
@@ -113,13 +125,14 @@ const createProjectCard = (project) => {
   githubLink.textContent = "GitHub";
   githubLink.setAttribute("aria-label", `${project.title} GitHub repository`);
 
-  const demoLink = document.createElement("a");
-  demoLink.className = "text-sm font-black text-[var(--accent)] hover:underline";
-  demoLink.href = project.demoUrl;
-  demoLink.textContent = "Live Demo";
-  demoLink.setAttribute("aria-label", `${project.title} live demo`);
+  const demoButton = document.createElement("button");
+  demoButton.className = "project-demo-button";
+  demoButton.type = "button";
+  demoButton.textContent = "Live Demo";
+  demoButton.setAttribute("aria-label", `Play ${project.title} demo video`);
+  demoButton.addEventListener("click", () => openVideoModal(project));
 
-  links.append(githubLink, demoLink);
+  links.append(githubLink, demoButton);
   body.append(title, description, tagList, links);
   card.append(image, body);
 
@@ -175,6 +188,16 @@ if (themeToggle) {
     setTheme(nextTheme);
   });
 }
+
+videoCloseButtons.forEach((button) => {
+  button.addEventListener("click", closeVideoModal);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && videoModal?.classList.contains("is-open")) {
+    closeVideoModal();
+  }
+});
 
 prefersDark.addEventListener("change", (event) => {
   if (!getStoredTheme()) {
