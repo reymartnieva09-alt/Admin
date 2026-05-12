@@ -72,7 +72,7 @@
   }
 
   .nav-link {
-    @apply block rounded-xl px-4 py-3 text-base font-extrabold text-[var(--muted)] transition hover:bg-[var(--soft)] hover:text-[var(--text)] focus:outline-none focus:ring-4 focus:ring-[var(--ring)] md:px-0 md:py-0 md:hover:bg-transparent md:hover:text-[var(--accent)];
+    @apply block rounded-xl px-4 py-3 text-base font-extrabold text-[var(--muted)] transition hover:bg-[var(--soft)] hover:text-[var(--text)] focus:outline-none focus:text-[var(--accent)] md:px-0 md:py-0 md:hover:bg-transparent md:hover:text-[var(--accent)];
   }
 
   .theme-toggle,
@@ -140,5 +140,75 @@
 
   .social-link {
     @apply grid size-12 place-items-center rounded-full border border-white/15 text-white/60 transition hover:-translate-y-0.5 hover:border-[#e9d7c6] hover:text-[#e9d7c6] focus:outline-none focus:ring-4 focus:ring-white/10;
+  }
+
+  .client-marquee {
+    @apply relative overflow-hidden py-5;
+  }
+
+  .client-marquee::before,
+  .client-marquee::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 6rem;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .client-marquee::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg), transparent);
+  }
+
+  .client-marquee::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg), transparent);
+  }
+
+  .client-marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 1.5rem;
+    padding-inline: 1.5rem;
+    animation: client-scroll 36s linear infinite;
+  }
+
+  .client-card {
+    @apply relative h-52 w-80 shrink-0 overflow-hidden rounded-2xl border-2 border-[var(--line)] bg-[var(--soft)] shadow-xl shadow-[var(--card-shadow)] sm:w-[32rem];
+  }
+
+  .client-card img {
+    @apply h-full w-full object-cover;
+  }
+
+  .client-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.08) 62%);
+  }
+
+  .client-card-content {
+    @apply absolute inset-x-0 bottom-0 z-[1] p-5 text-white;
+  }
+
+  .client-card-content h3 {
+    @apply text-xl font-black;
+  }
+
+  .client-card-content p {
+    @apply mt-1 text-sm font-semibold text-white/75;
+  }
+}
+
+@keyframes client-scroll {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
   }
 }
