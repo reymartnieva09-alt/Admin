@@ -1,0 +1,16 @@
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Profile photo placeholder</title>
+  <desc id="desc">A minimal profile image placeholder.</desc>
+  <rect width="720" height="720" rx="24" fill="#EEE8DE"/>
+  <path d="M0 0H720V720H0V0Z" fill="url(#paint0_linear)"/>
+  <circle cx="360" cy="286" r="94" fill="#FFFFFF"/>
+  <path d="M192 594C211.5 485.1 276.4 426 360 426C443.6 426 508.5 485.1 528 594H192Z" fill="#FFFFFF"/>
+  <text x="360" y="666" text-anchor="middle" fill="#667085" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Your Photo</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="95" y1="56" x2="625" y2="664" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F766E" stop-opacity="0.26"/>
+      <stop offset="0.52" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="1" stop-color="#D97706" stop-opacity="0.22"/>
+    </linearGradient>
+  </defs>
+</svg>

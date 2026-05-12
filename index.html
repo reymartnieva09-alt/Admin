@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A modern personal portfolio showcasing projects, skills, and contact information."
+    />
+    <title>Your Name | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Primary navigation">
+        <a class="logo" href="#home" aria-label="Go to home">YN</a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero section">
+        <div class="hero-content">
+          <p class="eyebrow">Hello, I'm</p>
+          <h1>Your Name</h1>
+          <p class="tagline">
+            A frontend developer building clean, responsive, and user-friendly
+            web experiences.
+          </p>
+          <a class="btn primary-btn" href="#projects">View My Work</a>
+        </div>
+        <div class="hero-visual" aria-label="Portfolio preview graphic">
+          <div class="browser-card">
+            <div class="browser-dots" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="browser-lines">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about section">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2>Focused on practical, polished web experiences.</h2>
+        </div>
+
+        <div class="about-grid">
+          <img
+            class="photo-placeholder"
+            src="assets/profile-placeholder.svg"
+            alt="Profile photo placeholder"
+          />
+
+          <div class="about-text">
+            <p>
+              Write a short introduction about yourself here. Share what kind of
+              work you enjoy, the technologies you use, and what makes your
+              approach unique.
+            </p>
+            <p>
+              This space can include your background, current goals, education,
+              professional experience, or the types of projects you want to
+              highlight.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects section">
+        <div class="section-heading">
+          <p class="eyebrow">Projects</p>
+          <h2>Selected work</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <img
+              class="screenshot-placeholder"
+              src="assets/project-placeholder-1.svg"
+              alt="Project One screenshot placeholder"
+            />
+            <div class="project-body">
+              <h3>Project One</h3>
+              <p>
+                A short description of the project, the problem it solves, and
+                the technologies used to build it.
+              </p>
+              <div class="project-links">
+                <a href="#" aria-label="Project One GitHub repository">GitHub</a>
+                <a href="#" aria-label="Project One live demo">Live Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              class="screenshot-placeholder"
+              src="assets/project-placeholder-2.svg"
+              alt="Project Two screenshot placeholder"
+            />
+            <div class="project-body">
+              <h3>Project Two</h3>
+              <p>
+                A clean project summary that explains the main feature, design
+                goal, or development challenge.
+              </p>
+              <div class="project-links">
+                <a href="#" aria-label="Project Two GitHub repository">GitHub</a>
+                <a href="#" aria-label="Project Two live demo">Live Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              class="screenshot-placeholder"
+              src="assets/project-placeholder-3.svg"
+              alt="Project Three screenshot placeholder"
+            />
+            <div class="project-body">
+              <h3>Project Three</h3>
+              <p>
+                Use this area to describe outcomes, important tools, and what
+                visitors should notice about the project.
+              </p>
+              <div class="project-links">
+                <a href="#" aria-label="Project Three GitHub repository">GitHub</a>
+                <a href="#" aria-label="Project Three live demo">Live Demo</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="skills section">
+        <div class="section-heading">
+          <p class="eyebrow">Skills</p>
+          <h2>Languages and tools</h2>
+        </div>
+
+        <ul class="skill-list" aria-label="Skills list">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>Git</li>
+          <li>GitHub</li>
+          <li>Responsive Design</li>
+          <li>Figma</li>
+        </ul>
+      </section>
+
+      <section id="contact" class="contact section">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2>Let's build something thoughtful.</h2>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="Tell me about your project"
+              required
+            ></textarea>
+          </div>
+
+          <button class="btn primary-btn" type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
