@@ -129,6 +129,18 @@
     @apply overflow-hidden;
   }
 
+  .game-developers {
+    @apply mt-5 rounded-xl border border-[var(--line)] bg-[var(--soft)] p-4;
+  }
+
+  .game-developers-label {
+    @apply text-xs font-black uppercase tracking-wide text-[var(--muted)];
+  }
+
+  .game-developers-list {
+    @apply mt-1 font-extrabold text-[var(--text)];
+  }
+
   .tag {
     @apply rounded-full border border-[var(--line)] bg-[var(--soft)] px-3 py-1 text-xs font-black uppercase tracking-wide text-[var(--muted)];
   }

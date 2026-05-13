@@ -3,6 +3,7 @@ const navLinks = document.querySelector(".nav-links");
 const themeToggle = document.querySelector(".theme-toggle");
 const themeToggleIcon = document.querySelector(".theme-toggle-icon");
 const projectGrid = document.querySelector("#project-grid");
+const gameGrid = document.querySelector("#game-grid");
 const clientMarqueeTrack = document.querySelector("#client-marquee-track");
 const videoModal = document.querySelector("#video-modal");
 const videoModalTitle = document.querySelector("#video-modal-title");
@@ -20,6 +21,17 @@ const projects = [
     tags: ["Lua", "Roblox Studio"],
     githubUrl: "#",
     videoUrl: "./assets/ProjectVideos/Roblox-2026-05-08T04_17_35.731Z.mp4",
+  },
+];
+
+const games = [
+  {
+    title: "Magnet Tower",
+    description: "An obby game with a lot of system including repel and attract system, checkpoint system, and more.",
+    developersDiscord: ["mack9513", "tenderjaxyz", "energetic_piglet_84313"],
+    gameUrl: "https://www.roblox.com/games/128918153356027/Magnet-Tower",
+    image: "./assets/ThumbnailImages/MagnetTowerTN.png",
+    alt: "Game thumbnail placeholder",
   },
 ];
 
@@ -85,6 +97,16 @@ const closeVideoModal = () => {
   document.body.classList.remove("modal-open");
 };
 
+const getDevelopersDiscordText = (game) => {
+  const developersDiscord = game.developersDiscord || game.developers;
+
+  if (Array.isArray(developersDiscord)) {
+    return developersDiscord.join(", ");
+  }
+
+  return developersDiscord || "Mackenzie";
+};
+
 const createProjectCard = (project) => {
   const card = document.createElement("article");
   card.className = "project-card";
@@ -141,6 +163,64 @@ const createProjectCard = (project) => {
 
 if (projectGrid) {
   projectGrid.replaceChildren(...projects.map((project) => createProjectCard(project)));
+}
+
+const createGameCard = (game) => {
+  const card = document.createElement("article");
+  card.className = "project-card";
+
+  const image = document.createElement("img");
+  image.className = "h-48 w-full object-cover";
+  image.src = game.image || "./assets/profile-placeholder.png";
+  image.alt = game.alt;
+  image.loading = "lazy";
+  image.addEventListener("error", () => {
+    image.src = "./assets/profile-placeholder.png";
+  }, { once: true });
+
+  const body = document.createElement("div");
+  body.className = "p-6";
+
+  const title = document.createElement("h3");
+  title.className = "text-xl font-black";
+  title.textContent = game.title;
+
+  const description = document.createElement("p");
+  description.className = "mt-3 text-[var(--muted)]";
+  description.textContent = game.description;
+
+  const developerBlock = document.createElement("div");
+  developerBlock.className = "game-developers";
+
+  const developerLabel = document.createElement("p");
+  developerLabel.className = "game-developers-label";
+  developerLabel.textContent = "Developers Discord";
+
+  const developerNames = document.createElement("p");
+  developerNames.className = "game-developers-list";
+  developerNames.textContent = getDevelopersDiscordText(game);
+
+  const links = document.createElement("div");
+  links.className = "mt-6 flex gap-4";
+
+  const playLink = document.createElement("a");
+  playLink.className = "text-sm font-black text-[var(--accent)] hover:underline";
+  playLink.href = game.gameUrl;
+  playLink.target = "_blank";
+  playLink.rel = "noopener noreferrer";
+  playLink.textContent = "Play Game";
+  playLink.setAttribute("aria-label", `Play ${game.title} on Roblox`);
+
+  developerBlock.append(developerLabel, developerNames);
+  links.append(playLink);
+  body.append(title, description, developerBlock, links);
+  card.append(image, body);
+
+  return card;
+};
+
+if (gameGrid) {
+  gameGrid.replaceChildren(...games.map((game) => createGameCard(game)));
 }
 
 const createClientCard = (client, isDuplicate = false) => {
