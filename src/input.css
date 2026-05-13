@@ -42,7 +42,7 @@
   }
 
   body {
-    min-width: 320px;
+    min-width: 0;
   }
 }
 
@@ -117,8 +117,12 @@
     @apply rounded-2xl border border-[var(--line)] bg-[var(--surface)] shadow-xl shadow-[var(--card-shadow)] transition hover:-translate-y-1 hover:border-[var(--accent)];
   }
 
+  .skill-list {
+    @apply m-0 grid list-none justify-items-center gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
   .skill-card {
-    @apply grid min-h-24 place-items-center p-6 text-center text-lg font-black;
+    @apply grid min-h-24 w-full max-w-sm place-items-center p-6 text-center text-lg font-black sm:max-w-none;
   }
 
   .service-card {
