@@ -47,7 +47,13 @@ const pastClients = [
     description: "May 10, 2026.",
     image: "./assets/ReceiptImages/second.png",
     alt: "Image",
-  }
+  },
+  {
+    title: "Trading, Inspecting, and Inventory System",
+    description: "May 15, 2026.",
+    image: "./assets/ReceiptImages/third.png",
+    alt: "Image",
+  },
 ];
 
 const getStoredTheme = () => localStorage.getItem("portfolio-theme");
