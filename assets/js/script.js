@@ -5,6 +5,7 @@ const themeToggleIcon = document.querySelector(".theme-toggle-icon");
 const projectGrid = document.querySelector("#project-grid");
 const gameGrid = document.querySelector("#game-grid");
 const clientMarqueeTrack = document.querySelector("#client-marquee-track");
+const clientGrid = document.querySelector("#client-grid");
 const videoModal = document.querySelector("#video-modal");
 const videoModalTitle = document.querySelector("#video-modal-title");
 const projectDemoVideo = document.querySelector("#project-demo-video");
@@ -70,9 +71,9 @@ const pastClients = [
     image: "./assets/ReceiptImages/third.png",
     alt: "Trading, inspecting, and inventory system receipt",
     images: [
-      "./assets/ProofImages/third-2.png",
-      "./assets/ProofImages/third-1.png",
-      "./assets/ProofImages/third-3.png",
+      "./assets/ProofImages/Third-2.png",
+      "./assets/ProofImages/Third-1.png",
+      "./assets/ProofImages/Third-3.png",
     ],
   },
 ];
@@ -378,6 +379,37 @@ const createClientCard = (client, isDuplicate = false) => {
   return card;
 };
 
+const createClientGridCard = (client) => {
+  const card = document.createElement("article");
+  card.className = "client-grid-card";
+
+  const image = document.createElement("img");
+  image.src = client.image;
+  image.alt = client.alt;
+  image.loading = "lazy";
+
+  const content = document.createElement("div");
+  content.className = "client-grid-card-content";
+
+  const title = document.createElement("h2");
+  title.textContent = client.title;
+
+  const description = document.createElement("p");
+  description.innerHTML = client.description;
+
+  const galleryButton = document.createElement("button");
+  galleryButton.className = "client-grid-gallery-button";
+  galleryButton.type = "button";
+  galleryButton.textContent = "View Images";
+  galleryButton.setAttribute("aria-label", `View images for ${client.title}`);
+  galleryButton.addEventListener("click", () => openClientGallery(client));
+
+  content.append(title, description, galleryButton);
+  card.append(image, content);
+
+  return card;
+};
+
 if (clientMarqueeTrack) {
   const cards = [
     ...pastClients.map((client) => createClientCard(client)),
@@ -385,6 +417,10 @@ if (clientMarqueeTrack) {
   ];
 
   clientMarqueeTrack.replaceChildren(...cards);
+}
+
+if (clientGrid) {
+  clientGrid.replaceChildren(...pastClients.map((client) => createClientGridCard(client)));
 }
 
 if (themeToggle) {

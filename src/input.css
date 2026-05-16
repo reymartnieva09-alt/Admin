@@ -162,6 +162,14 @@
     @apply border-0 bg-transparent p-0 text-sm font-black text-[var(--accent)] hover:underline;
   }
 
+  .section-heading-row {
+    @apply mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end;
+  }
+
+  .view-all-link {
+    @apply inline-flex min-h-11 items-center justify-center rounded-lg border border-[var(--line)] bg-[var(--surface)] px-5 text-sm font-black text-[var(--text)] transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:text-[var(--accent)] focus:outline-none focus:ring-4 focus:ring-[var(--ring)];
+  }
+
   .client-gallery-button {
     @apply mt-4 inline-flex min-h-10 items-center justify-center rounded-lg border border-white/25 bg-white/95 px-4 text-sm font-black text-[#17202b] transition hover:-translate-y-0.5 hover:bg-[var(--accent)] focus:outline-none focus:ring-4 focus:ring-white/25;
   }
@@ -305,6 +313,34 @@
 
   .client-card-content p {
     @apply mt-1 text-sm font-semibold text-white/75;
+  }
+
+  .client-grid {
+    @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .client-grid-card {
+    @apply overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--surface)] shadow-xl shadow-[var(--card-shadow)] transition hover:-translate-y-1 hover:border-[var(--accent)];
+  }
+
+  .client-grid-card img {
+    @apply h-64 w-full object-cover;
+  }
+
+  .client-grid-card-content {
+    @apply p-6;
+  }
+
+  .client-grid-card-content h2 {
+    @apply text-xl font-black;
+  }
+
+  .client-grid-card-content p {
+    @apply mt-3 text-[var(--muted)];
+  }
+
+  .client-grid-gallery-button {
+    @apply mt-6 inline-flex min-h-11 items-center justify-center rounded-lg bg-[var(--accent)] px-5 text-sm font-black text-[#07110f] shadow-lg shadow-[var(--accent-shadow)] transition hover:-translate-y-0.5 hover:bg-[var(--accent-strong)] focus:outline-none focus:ring-4 focus:ring-[var(--ring)];
   }
 }
 
