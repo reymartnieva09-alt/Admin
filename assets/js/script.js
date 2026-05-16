@@ -35,7 +35,7 @@ const projects = [
 const games = [
   {
     title: "Magnet Tower",
-    description: "An obby game with a lot of system including repel and attract system, checkpoint system, and more.",
+    description: "An obby game with a lot of system including repel and attract system, Pet system, and more.",
     developersDiscord: ["mack9513", "tenderjaxyz", "energetic_piglet_84313"],
     gameUrl: "https://www.roblox.com/games/128918153356027/Magnet-Tower",
     image: "./assets/ThumbnailImages/MagnetTowerTN.png",
