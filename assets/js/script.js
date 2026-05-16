@@ -9,6 +9,13 @@ const videoModal = document.querySelector("#video-modal");
 const videoModalTitle = document.querySelector("#video-modal-title");
 const projectDemoVideo = document.querySelector("#project-demo-video");
 const videoCloseButtons = document.querySelectorAll("[data-video-close]");
+const clientGalleryModal = document.querySelector("#client-gallery-modal");
+const clientGalleryTitle = document.querySelector("#client-gallery-title");
+const clientGalleryCount = document.querySelector("#client-gallery-count");
+const clientGalleryImage = document.querySelector("#client-gallery-image");
+const clientGalleryPrev = document.querySelector("#client-gallery-prev");
+const clientGalleryNext = document.querySelector("#client-gallery-next");
+const galleryCloseButtons = document.querySelectorAll("[data-gallery-close]");
 const year = document.querySelector("#year");
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -38,23 +45,41 @@ const games = [
 const pastClients = [
   {
     title: "Clothing System",
-    description: "May 9, 2026.",
+    description: "May 8, 2026. <br>  Price: $20",
     image: "./assets/ReceiptImages/first.png",
-    alt: "Image",
+    alt: "Clothing System receipt",
+    images: [
+      "./assets/ProofImages/first-1.png",
+      "./assets/ProofImages/first-2.png",
+      "./assets/ProofImages/first-3.png",
+    ],
   },
   {
     title: "Donation, Add to Cart, Designing 40 Avatar Outfit",
-    description: "May 10, 2026.",
+    description: "May 11, 2026. <br>  Price: $25",
     image: "./assets/ReceiptImages/second.png",
-    alt: "Image",
+    alt: "Donation, cart, and avatar outfit receipt",
+    images: [
+      "./assets/ProofImages/second-1.png",
+      "./assets/ProofImages/second-2.png",
+    ],
   },
   {
     title: "Trading, Inspecting, and Inventory System",
-    description: "May 15, 2026.",
+    description: "Date Started: May 15, 2026. <br>  Price: $25",
     image: "./assets/ReceiptImages/third.png",
-    alt: "Image",
+    alt: "Trading, inspecting, and inventory system receipt",
+    images: [
+      "./assets/ProofImages/third-2.png",
+      "./assets/ProofImages/third-1.png",
+      "./assets/ProofImages/third-3.png",
+    ],
   },
 ];
+
+let activeClient = null;
+let activeClientImages = [];
+let activeClientImageIndex = 0;
 
 const getStoredTheme = () => localStorage.getItem("portfolio-theme");
 const getPreferredTheme = () => getStoredTheme() || (prefersDark.matches ? "dark" : "light");
@@ -101,6 +126,91 @@ const closeVideoModal = () => {
   videoModal.classList.remove("is-open");
   videoModal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
+};
+
+const getClientImages = (client) => {
+  if (Array.isArray(client.images) && client.images.length > 0) {
+    return client.images;
+  }
+
+  return client.image ? [client.image] : [];
+};
+
+const updateClientGallery = () => {
+  if (
+    !activeClient ||
+    !clientGalleryTitle ||
+    !clientGalleryCount ||
+    !clientGalleryImage ||
+    !clientGalleryPrev ||
+    !clientGalleryNext ||
+    activeClientImages.length === 0
+  ) {
+    return;
+  }
+
+  const imageSrc = activeClientImages[activeClientImageIndex];
+
+  clientGalleryTitle.textContent = activeClient.title;
+  clientGalleryCount.textContent = `Image ${activeClientImageIndex + 1} of ${activeClientImages.length}`;
+  clientGalleryImage.src = imageSrc;
+  clientGalleryImage.alt = `${activeClient.title} image ${activeClientImageIndex + 1}`;
+
+  const hasMultipleImages = activeClientImages.length > 1;
+  clientGalleryPrev.disabled = !hasMultipleImages;
+  clientGalleryNext.disabled = !hasMultipleImages;
+};
+
+const openClientGallery = (client) => {
+  if (!clientGalleryModal || !clientGalleryImage) {
+    return;
+  }
+
+  activeClientImages = getClientImages(client);
+
+  if (activeClientImages.length === 0) {
+    return;
+  }
+
+  activeClient = client;
+  activeClientImageIndex = 0;
+  updateClientGallery();
+  clientGalleryModal.classList.add("is-open");
+  clientGalleryModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+};
+
+const closeClientGallery = () => {
+  if (!clientGalleryModal || !clientGalleryImage) {
+    return;
+  }
+
+  clientGalleryModal.classList.remove("is-open");
+  clientGalleryModal.setAttribute("aria-hidden", "true");
+  clientGalleryImage.removeAttribute("src");
+  clientGalleryImage.alt = "";
+  activeClient = null;
+  activeClientImages = [];
+  activeClientImageIndex = 0;
+  document.body.classList.remove("modal-open");
+};
+
+const showNextClientImage = () => {
+  if (activeClientImages.length <= 1) {
+    return;
+  }
+
+  activeClientImageIndex = (activeClientImageIndex + 1) % activeClientImages.length;
+  updateClientGallery();
+};
+
+const showPreviousClientImage = () => {
+  if (activeClientImages.length <= 1) {
+    return;
+  }
+
+  activeClientImageIndex = (activeClientImageIndex - 1 + activeClientImages.length) % activeClientImages.length;
+  updateClientGallery();
 };
 
 const getDevelopersDiscordText = (game) => {
@@ -249,9 +359,20 @@ const createClientCard = (client, isDuplicate = false) => {
   title.textContent = client.title;
 
   const description = document.createElement("p");
-  description.textContent = client.description;
+  description.innerHTML = client.description;
 
-  content.append(title, description);
+  const galleryButton = document.createElement("button");
+  galleryButton.className = "client-gallery-button";
+  galleryButton.type = "button";
+  galleryButton.textContent = "View Images";
+  galleryButton.setAttribute("aria-label", `View images for ${client.title}`);
+  galleryButton.addEventListener("click", () => openClientGallery(client));
+
+  if (isDuplicate) {
+    galleryButton.tabIndex = -1;
+  }
+
+  content.append(title, description, galleryButton);
   card.append(image, content);
 
   return card;
@@ -279,9 +400,35 @@ videoCloseButtons.forEach((button) => {
   button.addEventListener("click", closeVideoModal);
 });
 
+galleryCloseButtons.forEach((button) => {
+  button.addEventListener("click", closeClientGallery);
+});
+
+clientGalleryPrev?.addEventListener("click", showPreviousClientImage);
+clientGalleryNext?.addEventListener("click", showNextClientImage);
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && videoModal?.classList.contains("is-open")) {
     closeVideoModal();
+  }
+
+  if (!clientGalleryModal?.classList.contains("is-open")) {
+    return;
+  }
+
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeClientGallery();
+  }
+
+  if (event.key === "ArrowRight") {
+    event.preventDefault();
+    showNextClientImage();
+  }
+
+  if (event.key === "ArrowLeft") {
+    event.preventDefault();
+    showPreviousClientImage();
   }
 });
 
