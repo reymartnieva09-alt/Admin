@@ -76,6 +76,15 @@ const pastClients = [
       "./assets/ProofImages/Third-3.png",
     ],
   },
+  {
+    title: "Game Optimization",
+    description: "Date Started: May 16, 2026. <br>  Price: $15",
+    image: "./assets/ReceiptImages/fourth.jpg",
+    alt: "Trading, inspecting, and inventory system receipt",
+    images: [
+      "./assets/ProofImages/fourth-1.png",
+    ],
+  },
 ];
 
 let activeClient = null;
