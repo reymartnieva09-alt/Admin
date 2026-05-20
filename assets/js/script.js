@@ -3,6 +3,7 @@ const navLinks = document.querySelector(".nav-links");
 const themeToggle = document.querySelector(".theme-toggle");
 const themeToggleIcon = document.querySelector(".theme-toggle-icon");
 const projectGrid = document.querySelector("#project-grid");
+const modellingGrid = document.querySelector("#modelling-grid");
 const gameGrid = document.querySelector("#game-grid");
 const clientMarqueeTrack = document.querySelector("#client-marquee-track");
 const clientGrid = document.querySelector("#client-grid");
@@ -40,6 +41,39 @@ const games = [
     gameUrl: "https://www.roblox.com/games/128918153356027/Magnet-Tower",
     image: "./assets/ThumbnailImages/MagnetTowerTN.png",
     alt: "Game thumbnail placeholder",
+  },
+];
+
+const modellingShowcase = [
+  {
+    title: "Center Build",
+    description: "Date Created: April 18, 2026. <br>A stylized house model designed for Roblox environments.",
+    image: "./assets/ModellingImages/center.png",
+    alt: "Center build model",
+  },
+  {
+    title: "Kubo",
+    description: "Date Created: April 18, 2026. <br>A stylized environment model with a simple, readable silhouette.",
+    image: "./assets/ModellingImages/kubo.png",
+    alt: "Kubo model",
+  },
+  {
+    title: "Mini Robot",
+    description: "Date Created: April 18, 2026. <br>A compact robot model designed as a game-ready asset.",
+    image: "./assets/ModellingImages/minirobot1.png",
+    alt: "Mini robot model",
+  },
+  {
+    title: "Robot",
+    description: "Date Created: April 19, 2026. <br>A larger robot model with mechanical shape language.",
+    image: "./assets/ModellingImages/robot.png",
+    alt: "Robot model",
+  },
+  {
+    title: "Missile",
+    description: "Date Created: May 20, 2026. <br>A hard-surface prop model made for Roblox gameplay scenes.",
+    image: "./assets/ModellingImages/missile1.png",
+    alt: "Missile model",
   },
 ];
 
@@ -190,6 +224,14 @@ const openClientGallery = (client) => {
   document.body.classList.add("modal-open");
 };
 
+const openImageGallery = (item) => {
+  openClientGallery({
+    title: item.title,
+    image: item.image,
+    images: [item.image],
+  });
+};
+
 const closeClientGallery = () => {
   if (!clientGalleryModal || !clientGalleryImage) {
     return;
@@ -289,6 +331,44 @@ const createProjectCard = (project) => {
 
 if (projectGrid) {
   projectGrid.replaceChildren(...projects.map((project) => createProjectCard(project)));
+}
+
+const createModellingCard = (model) => {
+  const card = document.createElement("article");
+  card.className = "project-card";
+
+  const imageButton = document.createElement("button");
+  imageButton.className = "block w-full border-0 bg-transparent p-0";
+  imageButton.type = "button";
+  imageButton.setAttribute("aria-label", `View full image for ${model.title}`);
+  imageButton.addEventListener("click", () => openImageGallery(model));
+
+  const image = document.createElement("img");
+  image.className = "h-48 w-full object-cover";
+  image.src = model.image;
+  image.alt = model.alt;
+  image.loading = "lazy";
+
+  const body = document.createElement("div");
+  body.className = "p-6";
+
+  const title = document.createElement("h3");
+  title.className = "text-xl font-black";
+  title.textContent = model.title;
+
+  const description = document.createElement("p");
+  description.className = "mt-3 text-[var(--muted)]";
+  description.innerHTML = model.description;
+
+  body.append(title, description);
+  imageButton.append(image);
+  card.append(imageButton, body);
+
+  return card;
+};
+
+if (modellingGrid) {
+  modellingGrid.replaceChildren(...modellingShowcase.map((model) => createModellingCard(model)));
 }
 
 const createGameCard = (game) => {
