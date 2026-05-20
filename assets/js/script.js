@@ -31,6 +31,15 @@ const projects = [
     githubUrl: "#",
     videoUrl: "./assets/ProjectVideos/Roblox-2026-05-08T04_17_35.731Z.mp4",
   },
+  {
+    title: "GTA Like Door System",
+    description: "feature: smooth animation in entering hoouse with authentication.",
+    image: "./assets/ProjectImages/gtalikesystem.png",
+    alt: "GTA Like Door System Image",
+    tags: ["Lua", "Roblox Studio"],
+    githubUrl: "#",
+    videoUrl: "./assets/ProjectVideos/dooropen.mp4",
+  },
 ];
 
 const games = [
