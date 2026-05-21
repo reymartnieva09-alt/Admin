@@ -256,10 +256,17 @@
       <div class="video-modal-backdrop" data-video-close></div>
       <div class="video-modal-panel" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
         <div class="video-modal-header">
-          <h2 id="video-modal-title">Project Demo</h2>
+          <div>
+            <h2 id="video-modal-title">Project Demo</h2>
+            <p id="video-modal-count">Video 1 of 1</p>
+          </div>
           <button class="video-modal-close" type="button" data-video-close aria-label="Close video">Close</button>
         </div>
         <video id="project-demo-video" class="video-modal-player" controls playsinline></video>
+        <div class="video-modal-controls">
+          <button class="video-nav-button" id="video-prev" type="button" aria-label="Play previous project video">Previous</button>
+          <button class="video-nav-button" id="video-next" type="button" aria-label="Play next project video">Next</button>
+        </div>
       </div>
     </div>
 

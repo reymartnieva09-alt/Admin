@@ -9,7 +9,10 @@ const clientMarqueeTrack = document.querySelector("#client-marquee-track");
 const clientGrid = document.querySelector("#client-grid");
 const videoModal = document.querySelector("#video-modal");
 const videoModalTitle = document.querySelector("#video-modal-title");
+const videoModalCount = document.querySelector("#video-modal-count");
 const projectDemoVideo = document.querySelector("#project-demo-video");
+const videoPrevButton = document.querySelector("#video-prev");
+const videoNextButton = document.querySelector("#video-next");
 const videoCloseButtons = document.querySelectorAll("[data-video-close]");
 const clientGalleryModal = document.querySelector("#client-gallery-modal");
 const clientGalleryTitle = document.querySelector("#client-gallery-title");
@@ -29,7 +32,16 @@ const projects = [
     alt: "Driving System Image",
     tags: ["Lua", "Roblox Studio"],
     githubUrl: "#",
-    videoUrl: "./assets/ProjectVideos/Roblox-2026-05-08T04_17_35.731Z.mp4",
+    videos: [
+      {
+        title: "Driving System Demo 1",
+        src: "./assets/ProjectVideos/CarShpwcase1.mp4",
+      },
+      {
+        title: "Driving System Demo 2",
+        src: "./assets/ProjectVideos/CarShpwcase2.mp4",
+      },
+    ],
   },
   {
     title: "GTA Like Door System",
@@ -38,7 +50,12 @@ const projects = [
     alt: "GTA Like Door System Image",
     tags: ["Lua", "Roblox Studio"],
     githubUrl: "#",
-    videoUrl: "./assets/ProjectVideos/dooropen.mp4",
+    videos: [
+      {
+        title: "Door System Demo",
+        src: "./assets/ProjectVideos/dooropen.mp4",
+      },
+    ],
   },
 ];
 
@@ -133,6 +150,9 @@ const pastClients = [
 let activeClient = null;
 let activeClientImages = [];
 let activeClientImageIndex = 0;
+let activeProject = null;
+let activeProjectVideos = [];
+let activeProjectVideoIndex = 0;
 
 const getStoredTheme = () => localStorage.getItem("portfolio-theme");
 const getPreferredTheme = () => getStoredTheme() || (prefersDark.matches ? "dark" : "light");
@@ -155,17 +175,80 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
-const openVideoModal = (project) => {
-  if (!videoModal || !videoModalTitle || !projectDemoVideo || !project.videoUrl) {
+const normalizeVideo = (video, index, projectTitle) => {
+  if (typeof video === "string") {
+    return {
+      title: `${projectTitle} Demo ${index + 1}`,
+      src: video,
+    };
+  }
+
+  return {
+    title: video.title || `${projectTitle} Demo ${index + 1}`,
+    src: video.src || video.url,
+  };
+};
+
+const getProjectVideos = (project) => {
+  const videos = Array.isArray(project.videos) && project.videos.length > 0
+    ? project.videos
+    : project.videoUrl
+      ? [project.videoUrl]
+      : [];
+
+  return videos
+    .map((video, index) => normalizeVideo(video, index, project.title))
+    .filter((video) => video.src);
+};
+
+const updateVideoModal = () => {
+  if (
+    !activeProject ||
+    !videoModalTitle ||
+    !projectDemoVideo ||
+    activeProjectVideos.length === 0
+  ) {
     return;
   }
 
-  videoModalTitle.textContent = `${project.title} Demo`;
-  projectDemoVideo.src = project.videoUrl;
+  const video = activeProjectVideos[activeProjectVideoIndex];
+  const hasMultipleVideos = activeProjectVideos.length > 1;
+
+  videoModalTitle.textContent = video.title;
+  projectDemoVideo.src = video.src;
+  projectDemoVideo.load();
+
+  if (videoModalCount) {
+    videoModalCount.textContent = hasMultipleVideos
+      ? `Video ${activeProjectVideoIndex + 1} of ${activeProjectVideos.length}`
+      : "Video 1 of 1";
+  }
+
+  if (videoPrevButton && videoNextButton) {
+    videoPrevButton.disabled = !hasMultipleVideos;
+    videoNextButton.disabled = !hasMultipleVideos;
+  }
+
+  projectDemoVideo.play().catch(() => {});
+};
+
+const openVideoModal = (project) => {
+  if (!videoModal || !projectDemoVideo) {
+    return;
+  }
+
+  activeProjectVideos = getProjectVideos(project);
+
+  if (activeProjectVideos.length === 0) {
+    return;
+  }
+
+  activeProject = project;
+  activeProjectVideoIndex = 0;
+  updateVideoModal();
   videoModal.classList.add("is-open");
   videoModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
-  projectDemoVideo.play().catch(() => {});
 };
 
 const closeVideoModal = () => {
@@ -176,9 +259,22 @@ const closeVideoModal = () => {
   projectDemoVideo.pause();
   projectDemoVideo.removeAttribute("src");
   projectDemoVideo.load();
+  activeProject = null;
+  activeProjectVideos = [];
+  activeProjectVideoIndex = 0;
   videoModal.classList.remove("is-open");
   videoModal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
+};
+
+const showProjectVideo = (direction) => {
+  if (activeProjectVideos.length <= 1) {
+    return;
+  }
+
+  activeProjectVideoIndex =
+    (activeProjectVideoIndex + direction + activeProjectVideos.length) % activeProjectVideos.length;
+  updateVideoModal();
 };
 
 const getClientImages = (client) => {
@@ -533,6 +629,9 @@ if (themeToggle) {
 videoCloseButtons.forEach((button) => {
   button.addEventListener("click", closeVideoModal);
 });
+
+videoPrevButton?.addEventListener("click", () => showProjectVideo(-1));
+videoNextButton?.addEventListener("click", () => showProjectVideo(1));
 
 galleryCloseButtons.forEach((button) => {
   button.addEventListener("click", closeClientGallery);
