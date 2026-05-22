@@ -145,6 +145,15 @@ const pastClients = [
       "./assets/ProofImages/fourth-1.png",
     ],
   },
+    {
+    title: "GTA Like Door",
+    description: "Date Started: May 22, 2026. <br>  Price: $20",
+    image: "./assets/ReceiptImages/fifth.png",
+    alt: "Trading, inspecting, and inventory system receipt",
+    images: [
+      "./assets/ProofImages/fifth-1.png",
+    ],
+  },
 ];
 
 let activeClient = null;
