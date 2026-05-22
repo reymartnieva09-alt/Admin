@@ -108,7 +108,7 @@ const pastClients = [
     title: "Clothing System",
     description: "May 8, 2026. <br>  Price: $20",
     image: "./assets/ReceiptImages/first.png",
-    alt: "Clothing System receipt",
+    alt: "Receipt Image",
     images: [
       "./assets/ProofImages/first-1.png",
       "./assets/ProofImages/first-2.png",
@@ -119,7 +119,7 @@ const pastClients = [
     title: "Donation, Add to Cart, Designing 40 Avatar Outfit",
     description: "May 11, 2026. <br>  Price: $25",
     image: "./assets/ReceiptImages/second.png",
-    alt: "Donation, cart, and avatar outfit receipt",
+    alt: "Receipt Image",
     images: [
       "./assets/ProofImages/second-1.png",
       "./assets/ProofImages/second-2.png",
@@ -129,7 +129,7 @@ const pastClients = [
     title: "Trading, Inspecting, and Inventory System",
     description: "Date Started: May 15, 2026. <br>  Price: $25",
     image: "./assets/ReceiptImages/third.png",
-    alt: "Trading, inspecting, and inventory system receipt",
+    alt: "Receipt Image",
     images: [
       "./assets/ProofImages/Third-2.png",
       "./assets/ProofImages/Third-1.png",
@@ -140,7 +140,7 @@ const pastClients = [
     title: "Game Optimization",
     description: "Date Started: May 16, 2026. <br>  Price: $15",
     image: "./assets/ReceiptImages/fourth.jpg",
-    alt: "Trading, inspecting, and inventory system receipt",
+    alt: "Receipt Image",
     images: [
       "./assets/ProofImages/fourth-1.png",
     ],
@@ -149,7 +149,7 @@ const pastClients = [
     title: "GTA Like Door",
     description: "Date Started: May 22, 2026. <br>  Price: $20",
     image: "./assets/ReceiptImages/fifth.png",
-    alt: "Trading, inspecting, and inventory system receipt",
+    alt: "Receipt Image",
     images: [
       "./assets/ProofImages/fifth-1.png",
     ],
