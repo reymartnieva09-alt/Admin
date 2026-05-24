@@ -154,6 +154,15 @@ const pastClients = [
       "./assets/ProofImages/fifth-1.png",
     ],
   },
+    {
+    title: "UIS Scaling",
+    description: "Date Started: May 24, 2026. <br>  Price: $10",
+    image: "./assets/ReceiptImages/6.jpg",
+    alt: "Receipt Image",
+    images: [
+      "./assets/ProofImages/6-1.png",
+    ],
+  },
 ];
 
 let activeClient = null;
