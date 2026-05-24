@@ -4,6 +4,7 @@ const themeToggle = document.querySelector(".theme-toggle");
 const themeToggleIcon = document.querySelector(".theme-toggle-icon");
 const projectGrid = document.querySelector("#project-grid");
 const modellingGrid = document.querySelector("#modelling-grid");
+const uiShowcaseGrid = document.querySelector("#ui-showcase-grid");
 const gameGrid = document.querySelector("#game-grid");
 const clientMarqueeTrack = document.querySelector("#client-marquee-track");
 const clientGrid = document.querySelector("#client-grid");
@@ -100,6 +101,15 @@ const modellingShowcase = [
     description: "Date Created: May 20, 2026. <br>A hard-surface prop model made for Roblox gameplay scenes.",
     image: "./assets/ModellingImages/missile1.png",
     alt: "Missile model",
+  },
+];
+
+const uiShowcase = [
+  {
+    title: "Inventory UI",
+    description: "Date Created: May 24, 2026. <br>A responsive UI scaling setup for any device.",
+    image: "./assets/UiImages/1.png",
+    alt: "UIS scaling showcase",
   },
 ];
 
@@ -492,6 +502,10 @@ const createModellingCard = (model) => {
 
 if (modellingGrid) {
   modellingGrid.replaceChildren(...modellingShowcase.map((model) => createModellingCard(model)));
+}
+
+if (uiShowcaseGrid) {
+  uiShowcaseGrid.replaceChildren(...uiShowcase.map((uiItem) => createModellingCard(uiItem)));
 }
 
 const createGameCard = (game) => {
