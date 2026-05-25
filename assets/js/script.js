@@ -155,7 +155,7 @@ const pastClients = [
       "./assets/ProofImages/fourth-1.png",
     ],
   },
-    {
+  {
     title: "GTA Like Door",
     description: "Date Started: May 22, 2026. <br>  Price: $20",
     image: "./assets/ReceiptImages/fifth.png",
@@ -164,13 +164,24 @@ const pastClients = [
       "./assets/ProofImages/fifth-1.png",
     ],
   },
-    {
+  {
     title: "UIS Scaling",
     description: "Date Started: May 24, 2026. <br>  Price: $10",
     image: "./assets/ReceiptImages/6.jpg",
     alt: "Receipt Image",
     images: [
       "./assets/ProofImages/6-1.png",
+    ],
+  },
+  {
+    title: "Multiple System",
+    description: "Date Started: May 25, 2026. <br>  Price: $50",
+    image: "./assets/ReceiptImages/7.png",
+    alt: "Receipt Image",
+    images: [
+      "./assets/ProofImages/7-1.png",
+      "./assets/ProofImages/7-2.png",
+      "./assets/ProofImages/7-3.png",
     ],
   },
 ];
