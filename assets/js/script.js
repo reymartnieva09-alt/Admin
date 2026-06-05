@@ -69,6 +69,14 @@ const games = [
     image: "./assets/ThumbnailImages/MagnetTowerTN.png",
     alt: "Game thumbnail placeholder",
   },
+  {
+    title: "+1 Speed Rain Escape",
+    description: "A game inspired by +1 Speed Keyboard Escape + a Cool Events and more.",
+    developersDiscord: ["mack9513", "tenderjaxyz", "energetic_piglet_84313"],
+    gameUrl: "https://www.roblox.com/games/130202570444196/1-Speed-Rain-Escape-Cookie-Chocolate",
+    image: "./assets/ThumbnailImages/+1SpeedRain.png",
+    alt: "Game thumbnail placeholder",
+  },
 ];
 
 const modellingShowcase = [
