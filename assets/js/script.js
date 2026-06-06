@@ -58,6 +58,24 @@ const projects = [
       },
     ],
   },
+  {
+    title: "Roll Animation System",
+    description: "feature: A Roll Animation System with smooth blend and customizable settings.",
+    image: "./assets/ProjectImages/RollAnimation.png",
+    alt: "Roll Animation System Image",
+    tags: ["Lua", "Roblox Studio"],
+    githubUrl: "#",
+    videos: [
+      {
+        title: "Roll Animation System Demo",
+        src: "./assets/ProjectVideos/RollAnimation1.mp4",
+      },
+      {
+        title: "Roll Animation System Demo",
+        src: "./assets/ProjectVideos/RollAnimation2.mp4",
+      },
+    ],
+  },
 ];
 
 const games = [
