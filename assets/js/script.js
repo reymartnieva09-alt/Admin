@@ -210,6 +210,18 @@ const pastClients = [
       "./assets/ProofImages/7-3.png",
     ],
   },
+  {
+    title: "Bundle System",
+    description: "Date Started: June 1, 2026. <br>  Price: $200",
+    image: "./assets/ReceiptImages/8.png",
+    alt: "Receipt Image",
+    images: [
+      "./assets/ProofImages/8-1.png",
+      "./assets/ProofImages/8-2.png",
+      "./assets/ProofImages/8-3.png",
+      "./assets/ProofImages/8-4.png",
+    ],
+  },
 ];
 
 let activeClient = null;
