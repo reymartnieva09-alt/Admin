@@ -133,8 +133,22 @@ const modellingShowcase = [
 const uiShowcase = [
   {
     title: "Inventory UI",
-    description: "Date Created: May 24, 2026. <br>A responsive UI scaling setup for any device.",
+    description: "Date Created: May 24, 2026. <br>A Simulator Style and Scaled for any device.",
     image: "./assets/UiImages/1.png",
+    images: [
+      "./assets/UiImages/1.png",
+      "./assets/UiImages/1-1.png",
+    ],
+    alt: "UIS scaling showcase",
+  },
+  {
+    title: "Shop UI",
+    description: "Date Created: August 26, 2026. <br>A Studs Style and Scaled for any device.",
+    image: "./assets/UiImages/2.png",
+    images: [
+      "./assets/UiImages/2.png",
+      "./assets/UiImages/2-1.png",
+    ],
     alt: "UIS scaling showcase",
   },
 ];
@@ -407,11 +421,7 @@ const openClientGallery = (client) => {
 };
 
 const openImageGallery = (item) => {
-  openClientGallery({
-    title: item.title,
-    image: item.image,
-    images: [item.image],
-  });
+  openClientGallery(item);
 };
 
 const closeClientGallery = () => {
