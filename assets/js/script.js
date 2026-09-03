@@ -95,6 +95,14 @@ const games = [
     image: "./assets/ThumbnailImages/+1SpeedRain.png",
     alt: "Game thumbnail placeholder",
   },
+  {
+    title: "Steal a Chicken Egg to Fight (300k Visits)",
+    description: "A game where you have to defeat the hen and steal chicken egg from the guardian",
+    developersDiscord: ["mack9513", "tenderjaxyz", "energetic_piglet_84313"],
+    gameUrl: "https://www.roblox.com/games/87996734961371/Steal-a-Chicken-Egg-to-Fight",
+    image: "./assets/ThumbnailImages/StealChickenEgg.png",
+    alt: "Game thumbnail placeholder",
+  },
 ];
 
 const modellingShowcase = [
